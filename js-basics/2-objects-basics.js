@@ -1,4 +1,4 @@
-// Factory functions
+// 1. Factory functions
 // Use camelcase notation
 function createCircle(radius) {
     return {
@@ -13,8 +13,8 @@ let circle2Obj = createCircle(4);
 circle1Obj.draw();
 circle2Obj.draw();
 
-//Constructor Functions
-// Norm is to use Pascalcase notation
+// 2. Constructor Functions
+//Norm is to use PascalCase notation
 function CreateCircle(radius){
     this.radius = radius;
     this.draw = function(){
@@ -23,12 +23,12 @@ function CreateCircle(radius){
 }
 const circle = new CreateCircle(6);
 
-// Adding properties to a circle after creating it
+// 3. Adding properties to a circle after creating it
 circle.color = 'red'; 
 circle.draw();
 console.log(circle);
 
-// Enumerating in objects
+// 4. Enumerating in objects
 // Using for-in
 for (let item in circle1Obj)
     console.log(item);
@@ -44,23 +44,22 @@ if('color' in circle)
 else
     console.log('Property not present')
 
-// Object cloning
-// Type-1 - using for-in loop
+// 5. Object cloning
+// Using for-in loop
 const another1 = {};
 for (let key in circle)
     another1[key] = circle[key];
 console.log(another1);
-// Type-2 - using Object, can add additional properties to the object while copying
+// Using Object, can add additional properties to the object while copying
 const another2 = Object.assign({
     color: 'orange'
 }, circle1Obj);
 console.log(another2);
-// Type-3 - Using the spread operator
+// Using the spread operator
 const another3 = {...circle2Obj};
 console.log(another3);
 
-
-// Built-in objects in JS 
+// 6. Built-in objects in JS 
 // Math
 console.log(Math.random());
 // String
