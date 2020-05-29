@@ -16,19 +16,29 @@ circle2Obj.draw();
 // 2. Constructor Functions
 //Norm is to use PascalCase notation
 function CreateCircle(radius){
-    this.radius = radius;
+    console.log(this);
+    this.radius = radius,
     this.draw = function(){
-        console.log('Creating circle with radius ' + radius);
+        console.log('Creating circle with radius =', this.radius);
     }
 }
-const circle = new CreateCircle(6);
 
-// 3. Adding properties to a circle after creating it
+// 3 call(), apply() & bind()
+// Call a function by passing in an object {} and all the parameters the function accepts
+CreateCircle.call({}, 2123);
+// Call a function by passing in an object {} and all the parameters as an array
+CreateCircle.apply({}, [102, 232, 432]); // the extra values passed in array will be ignored
+// Binds the function to the object passed inside bind()
+const bindCreateCircle = CreateCircle.bind({radius: 45}); 
+bindCreateCircle();
+
+// 4. Adding properties to a circle after creating it
+const circle = new CreateCircle(6);
 circle.color = 'red'; 
 circle.draw();
 console.log(circle);
 
-// 4. Enumerating in objects
+// 5. Enumerating in objects
 // Using for-in
 for (let item in circle1Obj)
     console.log(item);
@@ -44,7 +54,7 @@ if('color' in circle)
 else
     console.log('Property not present')
 
-// 5. Object cloning
+// 6. Object cloning
 // Using for-in loop
 const another1 = {};
 for (let key in circle)
@@ -59,7 +69,7 @@ console.log(another2);
 const another3 = {...circle2Obj};
 console.log(another3);
 
-// 6. Built-in objects in JS 
+// 7. Built-in objects in JS 
 // Math
 console.log(Math.random());
 // String

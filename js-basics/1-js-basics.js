@@ -19,8 +19,7 @@ else
     console.log('int2 is greater than int1');
 
 // 4. Arithmetic Operator
-let result = int1 + int2;
-console.log("Sum = " + (int1 + int2));
+console.log("Sum = ", int1 + int2);
 
 let role = 'admin';
 // 5. Switch statement
@@ -28,11 +27,9 @@ switch (role) {
     case 'user':
         console.log('User');
         break;
-
     case 'admin':
         console.log('Admin');
         break;
-
     default:
         console.log('Default');
         break;
@@ -68,7 +65,7 @@ for (let key in person)
     console.log(key, person[key]);
 // For-of to iterate over an array or iterable
 for (let color of colors)
-    console.log(color);    
+    console.log(color);
 
 // 10. Functions
 function greet(name, age) {
