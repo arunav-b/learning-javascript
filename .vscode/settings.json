@@ -1,5 +1,6 @@
 {
     "terminal.integrated.fontSize": 15,
     "editor.fontSize": 17,
-    "terminal.integrated.fontFamily": "Menlo"
+    "terminal.integrated.fontFamily": "Menlo",
+    "editor.formatOnSave": true
 }
