@@ -2,11 +2,10 @@
 const numbers = [6, 7];
 
 // 2. And elements to array
-numbers.push(8, 9); // End 
+numbers.push(8, 9); // End
 numbers.unshift(11, 12); // Start
-// Middle after a particular position 
-numbers.splice(3, 0, 'ab', 'cd');
-
+// Middle after a particular position
+numbers.splice(3, 0, "ab", "cd");
 console.log(numbers);
 console.log(numbers.indexOf(7));
 
@@ -16,26 +15,36 @@ numbers.shift(); // Beginning
 numbers.splice(4, 1);
 console.log(numbers);
 
+// 4. Iterate over an array
+// Using for..of loop
+for (let num of numbers) console.log(num);
+// Using forEach
+numbers.forEach((value, index, array) => {
+  console.log(
+    `index: ${index}, value: ${value}, value from numbers[${index}]: ${array[index]}`
+  );
+});
+
 // 4. Find elements in an array
 const find = numbers.find(function (number) {
-    return number === 8;
-})
+  return number === 8;
+});
 const findWithArrow = numbers.find((number) => number < 8);
 console.log(find);
 
 const persons = [
-    { id: 1, name: 'Madhuri' },
-    { id: 2, name: 'Arunav' },
-    { id: 3, name: 'arpita' }
-]
+  { id: 1, name: "Ram" },
+  { id: 2, name: "Shyam" },
+  { id: 3, name: "Jadu" },
+];
 // 5. Sorting an array
 // Sort using the default way
-const sorted1 = persons.sort(); 
+const sorted1 = persons.sort();
 // Sort implementation can be provided
 const sorted = persons.sort((a, b) => {
-    if (a.name.toUpperCase() > b.name.toUpperCase()) return 1;
-    if (a.name.toUpperCase() < b.name.toUpperCase()) return -1;
-    return 0;
+  if (a.name.toUpperCase() > b.name.toUpperCase()) return 1;
+  if (a.name.toUpperCase() < b.name.toUpperCase()) return -1;
+  return 0;
 });
 console.log(sorted);
 
@@ -47,7 +56,7 @@ const concatUsingSpread = [...persons, ...numbers];
 console.log(concatUsingSpread);
 
 // 7. Join elements in an array to a string
-const joined = numbers.join(',');
+const joined = numbers.join(",");
 console.log(joined);
 
 // 8. every() and some() -> Returns boolean
@@ -61,10 +70,10 @@ console.log(isAnyNegative);
 
 // 9. Filter, Map, Reduce
 //Filter -> Returns filtered array
-const filtered = mixedNumbers.filter(number => number > 0);
+const filtered = mixedNumbers.filter((number) => number > 0);
 console.log(filtered);
 //Map -> Maps input array to a different type
-const mapped = mixedNumbers.map(number => ({id: number}));
+const mapped = mixedNumbers.map((number) => ({ id: number }));
 console.log(mapped);
 // Reduce -> Reduces input array to a single value. The logic for reduction is upto the user
 const reduced = mixedNumbers.reduce((sum, value) => sum + value, 0);
@@ -72,9 +81,9 @@ console.log(reduced);
 
 // 10. Chaining functions
 const chained = mixedNumbers
-    .filter(number => number !== 0)
-    .map(filteredNumber => ({key: filteredNumber}))
-    .reduce((product, numberObj) => product * numberObj.key, 1);
+  .filter((number) => number !== 0)
+  .map((filteredNumber) => ({ key: filteredNumber }))
+  .reduce((product, numberObj) => product * numberObj.key, 1);
 
 console.log(chained);
 
