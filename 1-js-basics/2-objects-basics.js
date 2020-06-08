@@ -23,7 +23,12 @@ function CreateCircle(radius) {
     });
 }
 
-// 3 call(), apply() & bind()
+// 3. call(), apply() & bind()
+// For both call() & apply(), the object passed as an argument becomes the context of `this` inside the called function
+// call() : invoke a function with a specified `this` context and optional arguments passed as varargs
+// apply() : invoke a function with a specified `this` context and optional arguments passed as array
+// bind() : In order to use a function (fn()) in the context of another object (obj), bind() method is used. The resultant object can be set to a const and can be used multiple times as a separate object (fn() + obj) throughout the lifetime of the application
+//
 // Call a function by passing in an object {} and all the parameters the function accepts
 CreateCircle.call({}, 2123);
 // Call a function by passing in an object {} and all the parameters as an array
@@ -54,7 +59,7 @@ else console.log("Property not present");
 const another1 = {};
 for (let key in circle) another1[key] = circle[key];
 console.log(another1);
-// Using Object, can add additional properties to the object while copying
+// Using Object.assign(), can add additional properties to the object while copying
 const another2 = Object.assign(
   {
     color: "orange",
@@ -62,11 +67,32 @@ const another2 = Object.assign(
   circle1Obj
 );
 console.log(another2);
-// Using the spread operator
+
+// 7. Spread Operator
+// Creates a shallow copy, and nested objects will be passed by reference.
 const another3 = { ...circle2Obj };
 console.log(another3);
+// While updating objects via spread, any nested object will have to be spread as well.
+const user = {
+  id: 3,
+  name: "Ron",
+  organization: {
+    name: "Parks & Recreation",
+    city: "Pawnee",
+  },
+};
 
-// 7. Built-in objects in JS
+const updatedUser = {
+  ...user,
+  organization: {
+    ...user.organization,
+    position: "Director",
+  },
+};
+
+console.log(updatedUser);
+
+// 8. Built-in objects in JS
 // Math
 console.log(Math.random());
 // String
@@ -80,7 +106,28 @@ Regards,
 Arunav`;
 console.log(message);
 
-// 8. Different Object functions in JS
+// 9. Object & Array Destructuring
+const note = {
+  title: "My first note",
+  author: {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+  },
+  tags: ["personal", "writing", "investigations"],
+};
+const {
+  title,
+  date = new Date(),
+  author,
+  author: { firstName },
+  tags: [personalTag, writingTag],
+} = note;
+
+console.log(
+  `Title: ${title}, \nDate: ${date}, \nAuthor: ${author}, \nFirstName: ${author.firstName}, \nPersonal Tag: ${personalTag}`
+);
+
+// 10. Different Object functions in JS
 //  Check out - https://www.digitalocean.com/community/tutorials/how-to-use-object-methods-in-javascript
 // - Object.create() - used to create a new object and link it to the prototype of an existing object.
 // - Object.keys() - creates an array containing the keys of an object.

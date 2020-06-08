@@ -25,7 +25,7 @@ numbers.forEach((value, index, array) => {
   );
 });
 
-// 4. Find elements in an array
+// 5. Find elements in an array
 const find = numbers.find(function (number) {
   return number === 8;
 });
@@ -37,7 +37,7 @@ const persons = [
   { id: 2, name: "Shyam" },
   { id: 3, name: "Jadu" },
 ];
-// 5. Sorting an array
+// 6. Sorting an array
 // Sort using the default way
 const sorted1 = persons.sort();
 // Sort implementation can be provided
@@ -48,18 +48,33 @@ const sorted = persons.sort((a, b) => {
 });
 console.log(sorted);
 
-// 6. concat 2 arrays
+// 7. concat/clone arrays
 const concat = persons.concat(numbers);
 console.log(concat);
 // Using spread operator
-const concatUsingSpread = [...persons, ...numbers];
+const concatUsingSpread = [
+  ...persons,
+  ...numbers,
+  [1, "anotherArray"],
+  "some object",
+];
 console.log(concatUsingSpread);
 
-// 7. Join elements in an array to a string
+// 7a. Spread Operator
+// Spread allows you to make a shallow copy of an array or object, meaning that any top level properties will be cloned, but nested objects will still be passed by reference.
+// Create an Array
+const originalArray = ["one", "two", "three"];
+// Use spread to make a shallow copy
+const secondArray = [...originalArray];
+// Remove the last item of the second Array
+secondArray.pop();
+console.log(originalArray);
+
+// 8. Join elements in an array to a string
 const joined = numbers.join(",");
 console.log(joined);
 
-// 8. every() and some() -> Returns boolean
+// 9. every() and some() -> Returns boolean
 const mixedNumbers = [1, -2, 0, 7];
 // every() - returns boolean if all the conditions are met
 const isAllPositive = mixedNumbers.every((number) => number >= 0);
@@ -68,7 +83,7 @@ console.log(isAllPositive);
 const isAnyNegative = mixedNumbers.some((number) => number < 0);
 console.log(isAnyNegative);
 
-// 9. Filter, Map, Reduce
+// 10. Filter, Map, Reduce
 //Filter -> Returns filtered array
 const filtered = mixedNumbers.filter((number) => number > 0);
 console.log(filtered);
@@ -79,7 +94,7 @@ console.log(mapped);
 const reduced = mixedNumbers.reduce((sum, value) => sum + value, 0);
 console.log(reduced);
 
-// 10. Chaining functions
+// 11. Chaining functions
 const chained = mixedNumbers
   .filter((number) => number !== 0)
   .map((filteredNumber) => ({ key: filteredNumber }))
@@ -87,5 +102,5 @@ const chained = mixedNumbers
 
 console.log(chained);
 
-// 11. includes() - checks if present in array
+// 12. includes() - checks if present in array
 console.log(mixedNumbers.includes(-7));
