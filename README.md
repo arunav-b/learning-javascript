@@ -2,25 +2,25 @@
 
 > Learning different aspects of JavaScript
 
-## JavaScript Basics
+## JavaScript Essentials
 
 ### Use === instead of ==
 
 - === checks for the value and data type of the variable being compared whereas == checks for only the value and not the data type
-- JavaScript doesn't care if there is ';' at the end of a statement. Whenever there is a line break it quitely assumes to have a ';'. We need to be careful with this especially in `return` statements.
+- JavaScript doesn't care if there is ';' at the end of a statement. Whenever there is a line break it quitely assumes to have a ';' at the end of the line. We need to be careful with this especially in multi-line `return` statements.
 
 ### `this` keyword
 
-- There are four main contexts in which the value of this can be implicitly inferred:
+- There are four main contexts in which the value of `this` can be implicitly inferred:
 
-  a. the global context: When referred within a simple function this still refers to the global object.
-  b. as an object method: A method uses this to refer to the properties of the object.
-  c. as a function/class constructor: When used inside a function/class constructor or class, this refers to the instance of the class/Function constructor.
-  d. as a DOM event handler: In an event handler called by addEventListener, this will refer to event.currentTarget.
+  1. **the global context**: When referred within a simple function `this` still refers to the global object.
+  2. **as an object method**: A method uses `this` to refer to the properties of the object.
+  3. **as a function/class constructor**: When used inside a function/class constructor or class, this refers to the instance of the class/Function constructor.
+  4. **as a DOM event handler**: In an event handler called by addEventListener, this will refer to event.currentTarget.
 
   [Additional reading on this](https://www.digitalocean.com/community/conceptual_articles/understanding-this-bind-call-and-apply-in-javascript)
 
-### Difference Between var, let, and const
+### Difference Between `var`, `let`, and `const`
 
 - Whenever possible use `const`. Varibles defined as `const` is immutable. `const` protects the reference but does not protect the properties inside an object.
 - `let` is mutable. Always prefer using `const` over 'let` whenever possible.
@@ -28,9 +28,9 @@
 
   | Keyword | Scope          | Hoisting | Can Be Reassigned | Can Be Redeclared |
   | ------- | -------------- | -------- | ----------------- | ----------------- |
-  | var     | Function scope | Yes      | Yes               | Yes               |
-  | let     | Block scope    | No       | Yes               | No                |
-  | const   | Block scope    | No       | No                | No                |
+  | `var`   | Function scope | Yes      | Yes               | Yes               |
+  | `let`   | Block scope    | No       | Yes               | No                |
+  | `const` | Block scope    | No       | No                | No                |
 
 ### Hoisting
 
@@ -53,10 +53,9 @@
 
 * **`call(), apply()` & `bind()`**
 
-  - For both `call()` & `apply()`, the object passed as an argument becomes the context of `this` inside the called function
-    **`call()`** : Invoke a function with a specified `this` context and optional arguments passed as varargs
-    **`apply()`** : Invoke a function with a specified `this` context and optional arguments passed as array
-    **`bind()`** : In order to use a function (fn()) in the context of another object (obj), bind() method is used. The resultant object can be set to a const and can be used multiple times as a separate object (fn() + obj) throughout the lifetime of the application
+  - `call()` : Invoke a function with a specified `this` context and optional arguments passed as varargs
+  - `apply()` : Invoke a function with a specified `this` context and optional arguments passed as array
+  - `bind()` : In order to use a function (fn()) in the context of another object (obj), bind() method is used. The resultant object can be set to a const and can be used multiple times as a separate object (fn() + obj) throughout the lifetime of the application
 
   ```
   function CreateCircle(radius, color) {
@@ -65,18 +64,27 @@
       console.log(`Creating circle with radius ${this.radius} and color ${this.color}`);
     });
   }
+
   CreateCircle.call({}, 7, 'red');  // Passing in an object {} and rest all as parameters as discrete values
+
   CreateCircle.apply({}, [4, 'black']); // Passing in an object {} and rest all parameters as array
+
   const bindCreateCircle = CreateCircle.bind({ radius: 45 }); // Binds the function to the object passed inside bind()
   bindCreateCircle();
   ```
 
-## Rest, Spread & Default
+> **Note:**
+>
+> - For both `call()` & `apply()`, the object passed as an argument becomes the context of `this` inside the called function
+
+<br/>
+
+## Rest, Spread & default
 
 ### Rest(...) Parameter
 
 - Don't use `arguments` keyword. It is a kind of wannabe Array, but not an `Array`. It is a poorly designed keyword.
-- Use `rest(...)` parameter instead of `arguments`. It is an `Array` type. It represents the varargs in a function(). When using `rest`, each argument is treated as different elements in array.
+- Use **_rest(...)_** parameter instead of `arguments`. It is an `Array` type. It represents the varargs in a function(). When using rest, each argument is treated as different elements in array.
 
   ```
   const getMax = function(...numbers){
@@ -88,8 +96,8 @@
 
 ### Spread(...) Operator
 
-- By default the `rest` operator expects discrete values to be passed as function arguments. So when an array is passed as an argument, the whole array is treated as the first element in the arguments array. So what if we want to pass an array to a function that expects varargs with ... `rest` operator.
-- Here comes the `spread(...)` operator. It looks same as the `rest`, but it is on the sending side of a function call. The spread operator spreads the elements inside an array as individual elements.
+- By default the rest operator expects discrete values to be passed as function arguments. So when an array is passed as an argument, the whole array is treated as the first element in the arguments array. So what if we want to pass an array to a function that expects varargs with ... rest operator.
+- Here comes the **_spread(...)_** operator. It looks same as the `rest`, but it is on the sending side of a function call. The spread operator spreads the elements inside an array as individual elements.
 
   ```
   const getMax = function(...numbers){
@@ -100,7 +108,7 @@
   console.log(maxValue)
   ```
 
-- Spread can be used independent of the fact if the called function is using `rest` or named parameters.
+- Spread can be used independent of the fact if the called function is using rest or named parameters.
 - It can be used to clone or combine arrays as well.
 
   ```
@@ -132,10 +140,12 @@
   ```
 
 > **Note :**
-
+>
 > - Spread operator is used to spread object or array as discrete elements when _sending_ it to a function
 > - Rest operator is used to accept different parameters as an array when _receiving_ it in a function
 > - `undefined` is replaced by default values, but not `null`. But it is not advisable to pass `null` or `undefined` to default values
+
+<br/>
 
 ## Iterators, Symbols & Generators, Scoping, Arrow Functions
 
@@ -149,6 +159,8 @@
 
 ### Arrow Functions
 
+<br/>
+
 ## Template & Object Literals, Destructuring
 
 ### Template Literal
@@ -158,6 +170,8 @@
 ### Array Destructuring
 
 ### Object Destructuring
+
+<br/>
 
 ## OO Javascript
 
@@ -268,14 +282,17 @@
 
 ### Maps & Sets
 
-- Maps over Objects:
-  // 1. Size - Maps have a size property, whereas Objects do not have a built-in way to retrieve their size.
-  // 2. Iteration - Maps are directly iterable, whereas Objects are not.
-  // 3. Flexibility - Maps can have any data type (primitive or Object) as the key to a value, while Objects can only have strings.
-  // 4. Ordered - Maps retain their insertion order, whereas objects do not have a guaranteed order.
+- **Maps over Objects**:
 
-- Objects over Maps:
-  // 1. JSON - Objects work flawlessly with JSON.parse() and JSON.stringify(), two essential functions for working with JSON, a common data format that many REST APIs deal with.
-  // 2. Working with a single element - Working with a known value in an Object, you can access it directly with the key without the need to use a method, such as Map’s get().
+  1. **Size** - Maps have a size property, whereas Objects do not have a built-in way to retrieve their size.
+  2. **Iteration** - Maps are directly iterable, whereas Objects are not.
+  3. **Flexibility** - Maps can have any data type (primitive or Object) as the key to a value, while Objects can only have strings.
+  4. **Ordered** - Maps retain their insertion order, whereas objects do not have a guaranteed order.
 
-- Sets are useful when working with duplicate data
+- **Objects over Maps**:
+
+  1. **JSON** - Objects work flawlessly with JSON.parse() and JSON.stringify(), two essential functions for working with JSON, a common data format that many REST APIs deal with.
+  2. **Working with a single element** - Working with a known value in an Object, you can access it directly with the key without the need to use a method, such as Map’s get().
+
+- **Sets**:
+  - Sets are useful when working with duplicate data
