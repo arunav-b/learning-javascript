@@ -1,6 +1,6 @@
 # Learning JavaScript ES6
 
-> Learning different aspects of JavaScript
+> Learning different aspects of JavaScript. This document is in progress.
 
 ## JavaScript Essentials
 
