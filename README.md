@@ -9,17 +9,6 @@
 - === checks for the value and data type of the variable being compared whereas == checks for only the value and not the data type
 - JavaScript doesn't care if there is ';' at the end of a statement. Whenever there is a line break it quitely assumes to have a ';' at the end of the line. We need to be careful with this especially in multi-line `return` statements.
 
-### `this` keyword
-
-- There are four main contexts in which the value of `this` can be implicitly inferred:
-
-  1. **the global context**: When referred within a simple function `this` still refers to the global object.
-  2. **as an object method**: A method uses `this` to refer to the properties of the object.
-  3. **as a function/class constructor**: When used inside a function/class constructor or class, this refers to the instance of the class/Function constructor.
-  4. **as a DOM event handler**: In an event handler called by addEventListener, this will refer to event.currentTarget.
-
-  [Additional reading on this](https://www.digitalocean.com/community/conceptual_articles/understanding-this-bind-call-and-apply-in-javascript)
-
 ### Difference Between `var`, `let`, and `const`
 
 - Whenever possible use `const`. Varibles defined as `const` is immutable. `const` protects the reference but does not protect the properties inside an object.
@@ -38,31 +27,58 @@
 
 ### Objects in JS
 
-- **Different Object functions in JS**
+- Objects in JavaScript is represented with a {}.
+- Object has properties and methods.
+- We can add properties and methods to JavaScript objects after they are created.
+- We can also delete propeties of objects.
+- Properties inside an object can be accessed using the dot(.) or the bracket([]) notation.
+
+  ```
+  const car = {
+      year : 2010,
+      make: 'BMW',
+      drive : function(){
+          console.log('Driving...');
+      }
+  }
+  console.log(car);
+  console.log(car.year);
+  console.log(car['make']);
+  car.color = 'black';
+  console.log(car);
+  delete car.make;
+  console.log(car);
+  ```
+
+- **Prototypes:**
+
+  - Every JavaScript object has an internal object called `Prototype`
+
+- **Object methods in JS**
 
   - `Object.create()` - used to create a new object and link it to the prototype of an existing object.
-  - `Object.keys()` - creates an array containing the keys of an object.
-  - `Object.values()` - creates an array containing the values of an object.
-  - `Object.entries()` - creates a nested array of the key/value pairs of an object.
-  - `Object.assign()` - used to copy values from one object to another. Also two objects can be merged with Object.assign().
+  - `Object.keys()` - returns an array containing the keys of an object.
+  - `Object.values()` - returns an array containing the values of an object.
+  - `Object.entries()` - returns a nested array of the key/value pairs of an object.
+  - `Object.assign()` - used to copy values from one object to another. Also two objects can be merged with it.
   - `Object.freeze()` - prevents modification to properties and values of an object, and prevents properties from being added or removed from an object.
   - `Object.seal()` - prevents new properties from being added to an object, but allows the modification of existing properties.
   - `Object.getPrototypeOf()` - used to get the internal hidden Prototype of an object
 
-  [Additional Reading on Objects](https://www.digitalocean.com/community/tutorials/how-to-use-object-methods-in-javascript)
+  [Reference](https://www.digitalocean.com/community/tutorials/how-to-use-object-methods-in-javascript)
 
-* **`call(), apply()` & `bind()`**
+### `call(), apply()` & `bind()`
 
-  - `call()` : Invoke a function with a specified `this` context and optional arguments passed as varargs
-  - `apply()` : Invoke a function with a specified `this` context and optional arguments passed as array
-  - `bind()` : In order to use a function (fn()) in the context of another object (obj), bind() method is used. The resultant object can be set to a const and can be used multiple times as a separate object (fn() + obj) throughout the lifetime of the application
+- `call()` : Invoke a function with a specified `this` context and optional arguments passed as varargs
+- `apply()` : Invoke a function with a specified `this` context and optional arguments passed as array
+- `bind()` : In order to use a function (fn()) in the context of another object (obj), bind() method is used. The resultant object can be set to a const and can be used multiple times as a separate object (fn() + obj) throughout the lifetime of the application
 
   ```
   function CreateCircle(radius, color) {
   (this.radius = radius),
-    (this.draw = function () {
+  (this.draw = function () {
       console.log(`Creating circle with radius ${this.radius} and color ${this.color}`);
-    });
+  });
   }
 
   CreateCircle.call({}, 7, 'red');  // Passing in an object {} and rest all as parameters as discrete values
@@ -73,9 +89,40 @@
   bindCreateCircle();
   ```
 
+  [Reference](https://www.taniarascia.com/this-bind-call-apply-javascript/)
+
 > **Note:**
 >
 > - For both `call()` & `apply()`, the object passed as an argument becomes the context of `this` inside the called function
+> - Both `call()` & `apply()` are one-time use methods. If we call with `this` context it will have it, but the original function will remain unchanged.
+
+### `this` keyword
+
+- There are four main contexts in which the value of `this` can be implicitly inferred:
+
+  1. **the global context**: When referred within a simple function `this` still refers to the global object.
+  2. **as an object method**: A method uses `this` to refer to the properties of the object.
+  3. **as a function/class constructor**: When used inside a function/class constructor or class, `this` refers to the current instance of the class/Function constructor.
+  4. **as a DOM event handler**: In an event handler called by addEventListener, this will refer to event.currentTarget.
+
+  [Reference](https://www.taniarascia.com/this-bind-call-apply-javascript/)
+
+### JS & DOM
+
+- [JS, Browser & DOM](https://www.kirupa.com/html5/javascript_the_browser_and_the_dom.htm)
+- [Query Selector](https://www.kirupa.com/html5/finding_elements_dom_using_querySelector.htm)
+- [Modifying DOM](https://www.kirupa.com/html5/modifying_dom_elements.htm)
+- [Traversing DOM](https://www.kirupa.com/html5/traversing_the_dom.htm)
+- [Creating, Removing & Cloning DOM elements](https://www.kirupa.com/html5/creating_dom_elements_and_other_stuff.htm)
+
+### Event Handling
+
+- [Events in JS](https://www.kirupa.com/html5/javascript_events.htm)
+- [Event Capturing and Bubbling](https://www.kirupa.com/html5/event_capturing_bubbling_javascript.htm)
+- [Mouse Events](https://www.kirupa.com/html5/mouse_events_in_javascript.htm)
+- [Handling Events for Many Elements](https://www.kirupa.com/html5/handling_events_for_many_elements.htm)
+- [Keyboard Events](https://www.kirupa.com/html5/keyboard_events_in_javascript.htm)
+- [Custom Events](https://www.kirupa.com/html5/custom_events_js.htm)
 
 <br/>
 
@@ -151,13 +198,53 @@
 
 ### Enhanced `for` loop
 
+- `for in` loop
+  ```
+  function createCircle(radius) {
+  return {
+    radius,
+    draw() {
+      console.log("Circle is of radius " + radius);
+    },
+  };
+  }
+  let circleObj = createCircle(2);
+  for (let item in circleObj) console.log(item);
+  ```
+
+* `for of` loop
+  ```
+  for (let key of Object.keys(circleObj)) console.log(key) // Enumerating keys;
+  for (let entry of Object.entries(circleObj)) console.log(entry) // Enumerating key-value pairs;
+  for (let [idx, entry] of Object.entries(circleObj)) console.log(idx + '--' +entry) // Enumerating idx and key-value pairs;
+  ```
+
 ### Symbols - the new primitive type
+
+- Refer Venkat's book Rediscovering JavaScript
 
 ### Generators (\*)
 
+[Reference](https://www.taniarascia.com/understanding-generators-in-javascript/)
+
 ### Lexical vs Dynamic Scoping
 
+- **Lexical Scoping**:
+
+  - An unbounded variable is bounded to a definition in the defining scope
+  - We can roll our eye balls over the code and find the variable to bind to
+
+- **Dynamic Scoping**:
+  - An unbounded variable is bounded to a variable passed in by the caller of the function
+
+> **Note**:
+>
+> - In a regular function, all variables are lexically scoped except `this` and arguments which are dynamically scoped
+
 ### Arrow Functions
+
+- Arrow functions use lexical scoping whereas functions use dynamic scoping.
+- Arrow function do not have their own `this` binding. They go one level up to the next level for execution.
 
 <br/>
 
@@ -167,9 +254,7 @@
 
 ### Object Literal
 
-### Array Destructuring
-
-### Object Destructuring
+### Array & Object Destructuring
 
 <br/>
 
@@ -178,8 +263,8 @@
 ### Class
 
 - Classes in JavaScript needs to be defined using `class`.
-- An object of a class is instantiated using the `new` keyword.
-- Internally a class is of type `function` in JavaScript
+- Classes were introduced as a part of ES6 2015.
+- Classes are functions which is a syntactical sugar over prototypes and inheritance
 
 ### Constructor
 
@@ -272,13 +357,9 @@
 - In JavaScript, prototypal inheritance is used, i.e., object based inheritance and not class based inheritance.
 - In JavaScript inheritance, gets are deep and sets are shallow.
 
-- **Prototypes:**
+* **Prototypal Inheritance:**
 
-  - Prototypes in JS
-
-- **Prototypal Inheritance:**
-
-  - In prototypal inheritance
+  - When an object property is accessed , JavaScript will search for the property in the object first. If not found it will search in parent object's prototype. If it is not found, it will search in the parent's linked prototype until it reaches Object.prototype. This is how the prototypal inheritance works in JavaScript.
 
 ### Maps & Sets
 
@@ -296,3 +377,31 @@
 
 - **Sets**:
   - Sets are useful when working with duplicate data
+
+### Modules
+
+- Creating
+- Exporting
+- Importing
+
+## Advanced Topics
+
+### Promises
+
+- Getting over the callback hell
+- Promises
+- `async` and `await`
+
+- [Reference](https://www.taniarascia.com/promise-all-with-async-await/)
+
+### Metaprogramming
+
+- Dynamic access
+- Reflect
+- Proxy
+
+## Additional Reading
+
+- [Arrays](https://www.taniarascia.com/understanding-arrays-in-javascript/)
+- [String Manipulation](https://www.taniarascia.com/how-to-index-split-and-manipulate-strings-in-javascript/)
+- [Map, Filter & Reduce](https://www.taniarascia.com/real-world-examples-of-map-filter-and-reduce-in-javascript/)
