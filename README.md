@@ -19,13 +19,14 @@
 - === checks for the value and data type of the variable being compared whereas == checks for only the value and not the data type
 - JavaScript doesn't care if there is ';' at the end of a statement. Whenever there is a line break it quitely assumes to have a ';' at the end of the line. We need to be careful with this especially in multi-line `return` statements.
 
-## Hoisting
+<br/>
+
+## Hoisting & `Prototype`
 
 - A behavior of JavaScript in which variable declaration and function declaration are moved to the top of their scope.
-
-## `Prototype`
-
 - Every JavaScript object has an internal property called `Prototype` which is nothing but a reference pointing to another object, which again contains some properties including `Prototype`.
+
+<br/>
 
 ## Objects in JS
 
@@ -51,6 +52,8 @@
   console.log(car);
   ```
 
+<br/>
+
 ## `Object` methods in JS
 
 - `Object.create()` - used to create a new object and link it to the prototype of an existing object.
@@ -62,7 +65,9 @@
 - `Object.seal()` - prevents new properties from being added to an object, but allows the modification of existing properties.
 - `Object.getPrototypeOf()` - used to get the internal hidden Prototype of an object.
 
-[Additional Reference](https://www.digitalocean.com/community/tutorials/how-to-use-object-methods-in-javascript)
+  [Additional Reference](https://www.digitalocean.com/community/tutorials/how-to-use-object-methods-in-javascript)
+
+<br/>
 
 ## `call(), apply()` & `bind()`
 
@@ -86,12 +91,14 @@
   bindCreateCircle();
   ```
 
-[Additional Reference](https://www.taniarascia.com/this-bind-call-apply-javascript/)
+  [Additional Reference](https://www.taniarascia.com/this-bind-call-apply-javascript/)
 
-> **Note:**
->
-> - For both `call()` & `apply()`, the object passed as an argument becomes the context of `this` inside the called function
-> - Both `call()` & `apply()` are one-time use methods. If we call with `this` context it will have it, but the original function will remain unchanged.
+  > **Note:**
+  >
+  > - For both `call()` & `apply()`, the object passed as an argument becomes the context of `this` inside the called function
+  > - Both `call()` & `apply()` are one-time use methods. If we call with `this` context it will have it, but the original function will remain unchanged.
+
+<br/>
 
 ## `this` keyword
 
@@ -102,7 +109,9 @@
   3. **as a function/class constructor**: When used inside a function/class constructor or class, `this` refers to the current instance of the class/Function constructor.
   4. **as a DOM event handler**: In an event handler called by addEventListener, this will refer to event.currentTarget.
 
-[Additional Reference](https://www.taniarascia.com/this-bind-call-apply-javascript/)
+  [Additional Reference](https://www.taniarascia.com/this-bind-call-apply-javascript/)
+
+<br/>
 
 ## JS & DOM
 
@@ -111,6 +120,8 @@
 - [Modifying DOM](https://www.kirupa.com/html5/modifying_dom_elements.htm)
 - [Traversing DOM](https://www.kirupa.com/html5/traversing_the_dom.htm)
 - [Creating, Removing & Cloning DOM elements](https://www.kirupa.com/html5/creating_dom_elements_and_other_stuff.htm)
+
+<br/>
 
 ## Event Handling
 
