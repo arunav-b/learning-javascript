@@ -537,12 +537,12 @@
 
 ### `Set`
 
-- A set is a unique collection of primitives and objects—duplicates are not allowed.
+- A `Set` is a unique collection of primitives and objects. Duplicates are not allowed inside a `Set`.
 - We can create an empty set and add objects to it, or initialize a set with the contents of an iterable, like an array.
 
 ### `Map`
 
-- A Map is an associative collection of keys and values where the keys are dis- tinct.
+- A `Map` is an associative collection of keys and values where the keys are distinct.
 - Keys and values may be any primitive or object.
 - We can create an empty map and then add values to it, or we can create it with some initial values.
 
@@ -556,15 +556,15 @@
   >
   > - **Maps over Objects**:
   >
-  > 1. **Size** - Maps have a size property, whereas Objects do not have a built-in way to retrieve their size.
-  > 2. **Iteration** - Maps are directly iterable, whereas Objects are not.
-  > 3. **Flexibility** - Maps can have any data type (primitive or Object) as the key to a value, while Objects can only have strings.
-  > 4. **Ordered** - Maps retain their insertion order, whereas objects do not have a guaranteed order.
+  >   1. **Size** - Maps have a size property, whereas Objects do not have a built-in way to retrieve their size.
+  >   2. **Iteration** - Maps are directly iterable, whereas Objects are not.
+  >   3. **Flexibility** - Maps can have any data type (primitive or Object) as the key to a value, while Objects can only have strings.
+  >   4. **Ordered** - Maps retain their insertion order, whereas objects do not have a guaranteed order.
   >
   > - **Objects over Maps**:
   >
-  > 1. **JSON** - Objects work flawlessly with JSON.parse() and JSON.stringify(), two essential functions for working with JSON, a common data format that many REST APIs deal with.
-  > 2. **Working with a single element** - Working with a known value in an Object, you can access it directly with the key without the need to use a method, such as Map’s get().
+  >   1. **JSON** - Objects work flawlessly with JSON.parse() and JSON.stringify(), two essential functions for working with JSON, a common data format that many REST APIs deal with.
+  >   2. **Working with a single element** - Working with a known value in an Object, you can access it directly with the key without the need to use a method, such as Map’s get().
 
 <br/>
 
@@ -587,6 +587,9 @@
 - Exporting
 - Importing
 - Read Venkat's book [Rediscovering JavaScript](https://learning.oreilly.com/library/view/rediscovering-javascript/9781680506174/f_0070.xhtml#chap.modules)
+
+<br/>
+<br/>
 
 # 4. Advanced Topics
 
