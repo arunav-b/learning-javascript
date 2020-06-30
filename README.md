@@ -1,6 +1,6 @@
 # Learning JavaScript
 
-> **_This document is In Progress_**
+> **_In Progress_**
 >
 > This document has been seggregated as following -
 >
@@ -9,22 +9,25 @@
 > 3. OO JavaScript
 > 4. Advanced Topics
 
-# JavaScript Essentials
+<br/>
+<br/>
 
-### Use === instead of ==
+# 1. JavaScript Essentials
+
+## Use === instead of ==
 
 - === checks for the value and data type of the variable being compared whereas == checks for only the value and not the data type
 - JavaScript doesn't care if there is ';' at the end of a statement. Whenever there is a line break it quitely assumes to have a ';' at the end of the line. We need to be careful with this especially in multi-line `return` statements.
 
-### Hoisting
+## Hoisting
 
 - A behavior of JavaScript in which variable declaration and function declaration are moved to the top of their scope.
 
-### `Prototype`
+## `Prototype`
 
 - Every JavaScript object has an internal property called `Prototype` which is nothing but a reference pointing to another object, which again contains some properties including `Prototype`.
 
-### Objects in JS
+## Objects in JS
 
 - Objects in JavaScript is represented with a {}.
 - Object has properties and methods.
@@ -48,7 +51,7 @@
   console.log(car);
   ```
 
-### `Object` methods in JS
+## `Object` methods in JS
 
 - `Object.create()` - used to create a new object and link it to the prototype of an existing object.
 - `Object.keys()` - returns an array containing the keys of an object.
@@ -61,7 +64,7 @@
 
 [Additional Reference](https://www.digitalocean.com/community/tutorials/how-to-use-object-methods-in-javascript)
 
-### `call(), apply()` & `bind()`
+## `call(), apply()` & `bind()`
 
 - `call()` : Invoke a function with a specified `this` context and optional arguments passed as varargs
 - `apply()` : Invoke a function with a specified `this` context and optional arguments passed as array
@@ -90,7 +93,7 @@
 > - For both `call()` & `apply()`, the object passed as an argument becomes the context of `this` inside the called function
 > - Both `call()` & `apply()` are one-time use methods. If we call with `this` context it will have it, but the original function will remain unchanged.
 
-### `this` keyword
+## `this` keyword
 
 - There are four main contexts in which the value of `this` can be implicitly inferred:
 
@@ -101,7 +104,7 @@
 
 [Additional Reference](https://www.taniarascia.com/this-bind-call-apply-javascript/)
 
-### JS & DOM
+## JS & DOM
 
 - [JS, Browser & DOM](https://www.kirupa.com/html5/javascript_the_browser_and_the_dom.htm)
 - [Query Selector](https://www.kirupa.com/html5/finding_elements_dom_using_querySelector.htm)
@@ -109,7 +112,7 @@
 - [Traversing DOM](https://www.kirupa.com/html5/traversing_the_dom.htm)
 - [Creating, Removing & Cloning DOM elements](https://www.kirupa.com/html5/creating_dom_elements_and_other_stuff.htm)
 
-### Event Handling
+## Event Handling
 
 - [Events in JS](https://www.kirupa.com/html5/javascript_events.htm)
 - [Event Capturing and Bubbling](https://www.kirupa.com/html5/event_capturing_bubbling_javascript.htm)
@@ -121,7 +124,7 @@
 <br/>
 <br/>
 
-# ES6 & Beyond
+# 2. ES6 & Beyond
 
 ## Difference between `var`, `let`, and `const`
 
@@ -238,12 +241,19 @@
 
 ## Useful Additions: Symbols & Generators, Arrow Functions, Literals & Destructuring
 
+<br/>
+
 ## `Symbol` - the new primitive type
 
 - Previously JavaScript had 5 primitive types - `number`, `string`, `boolean`, `null`, and, `undefined`. `Symbol` is a new primitive type in JavaScript intended for limited specialized use.
 - Interally a Symbol maintains a unique Id for each variable defined as Symbol. No two Symbols can be same.
 - We can add labels to a Symbol, which just adds a reference to a Symbol.
 - Only when two Symbols are defined using `Symbol.for()` and have the same labels, then they are equal. For all other scenarios Symbols are always unique.
+- Symbols can be used for 3 distinct purposes -
+
+  1. To define properties for objects in such a way they _**don’t appear during normal iteration**_. These properties are not private. They’re just not easily discovered like other properties. When properties of an object are iterated using `for ... in` loop, Symbol properties are not visible. Hence, Symbols can be used to store the metadata of an object.
+  2. To easily _**define a global registry**_ or dictionary of objects.
+  3. To **_define some special well-known methods_** in objects. This feature, which fills the void of interfaces, is arguably one of the most important purposes of Symbol.
 
   ```
   const x = Symbol();
@@ -256,12 +266,7 @@
   console.log(a === b);
   ```
 
-- Symbols can be used for 3 distinct purposes -
-  1. To define properties for objects in such a way they _**don’t appear during normal iteration**_. These properties are not private. They’re just not easily discovered like other properties. When properties of an object are iterated using `for ... in` loop, Symbol properties are not visible. Hence, Symbols can be used to store the metadata of an object.
-  2. To easily _**define a global registry**_ or dictionary of objects.
-  3. To **_define some special well-known methods_** in objects. This feature, which fills the void of interfaces, is arguably one of the most important purposes of Symbol.
-
-* Refer Venkat's book [Rediscovering JavaScript](https://learning.oreilly.com/library/view/rediscovering-javascript/9781680506174/f_0035.xhtml#d24e6098)
+  Refer Venkat's book [Rediscovering JavaScript](https://learning.oreilly.com/library/view/rediscovering-javascript/9781680506174/f_0035.xhtml#d24e6098)
 
 <br/>
 
@@ -376,8 +381,6 @@
   console.log(laptop.make3);
   ```
 
-<br/>
-
 ## Array & Object Destructuring
 
 - The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
@@ -413,7 +416,7 @@
   <br/>
   <br/>
 
-# OO Javascript
+# 3. OO Javascript
 
 ## Class
 
@@ -463,7 +466,6 @@
 - `static` method can be called using class and not using objects.
 - A property can also be made `static` and can be referred using the class.
 - A field can also be made `static` but that needs to be defined outside the class, but it can be used and modified inside the constructor. It can be defined by using the class name and dot notation.
-
   ```
   class Car {
     constructor(year){
@@ -480,11 +482,10 @@
   console.log(Car.model);
   ```
 
-### Class Expression
+## Class Expression
 
 - Classes can be created on the fly using class expression.
 - The same class expression can be used for different classes.
-
   ```
   const classFactory = function(...properties){
     return class{
@@ -554,7 +555,7 @@
 - Importing
 - Read Venkat's book [Rediscovering JavaScript](https://learning.oreilly.com/library/view/rediscovering-javascript/9781680506174/f_0070.xhtml#chap.modules)
 
-# Advanced Topics
+# 4. Advanced Topics
 
 ## Promises
 
