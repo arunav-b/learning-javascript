@@ -621,7 +621,3 @@
 - [Arrays](https://www.taniarascia.com/understanding-arrays-in-javascript/)
 - [String Manipulation](https://www.taniarascia.com/how-to-index-split-and-manipulate-strings-in-javascript/)
 - [Map, Filter & Reduce](https://www.taniarascia.com/real-world-examples-of-map-filter-and-reduce-in-javascript/)
-
-```
-
-```
