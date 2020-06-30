@@ -14,6 +14,8 @@
 
 # 1. JavaScript Essentials
 
+<br/>
+
 ## Use === instead of ==
 
 - === checks for the value and data type of the variable being compared whereas == checks for only the value and not the data type
@@ -136,6 +138,8 @@
 <br/>
 
 # 2. ES6 & Beyond
+
+<br/>
 
 ## Difference between `var`, `let`, and `const`
 
@@ -392,6 +396,8 @@
   console.log(laptop.make3);
   ```
 
+<br/>
+
 ## Array & Object Destructuring
 
 - The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
@@ -429,15 +435,21 @@
 
 # 3. OO Javascript
 
+<br/>
+
 ## Class
 
 - Classes in JavaScript needs to be defined using `class`.
 - Classes were introduced as a part of ES6 2015.
 - Classes are functions which is a syntactical sugar over prototypes and inheritance
 
+<br/>
+
 ## Constructor
 
 - Don't need to define variables, use variables as required with `this` keyword inside a constructor.
+
+<br/>
 
 ## Properties
 
@@ -471,6 +483,8 @@
   console.log(car);
   ```
 
+<br/>
+
 ## `static` method
 
 - A method can be static by just prefixing it with `static` keyword.
@@ -493,6 +507,8 @@
   console.log(Car.model);
   ```
 
+<br/>
+
 ## Class Expression
 
 - Classes can be created on the fly using class expression.
@@ -514,6 +530,8 @@
   const car1 = new Car(2010, 'BMW', 'Black');
   console.log(car1);
   ```
+
+<br/>
 
 ## Built-in Classes : `Set`, `Map`, `WeakSet` & `WeakMap`
 
@@ -548,6 +566,8 @@
   > 1. **JSON** - Objects work flawlessly with JSON.parse() and JSON.stringify(), two essential functions for working with JSON, a common data format that many REST APIs deal with.
   > 2. **Working with a single element** - Working with a known value in an Object, you can access it directly with the key without the need to use a method, such as Map’s get().
 
+<br/>
+
 ## Inheritance
 
 - Class based inheritance is static and not flexible. A class is always tied up to the parent class from which it is inheriting.
@@ -559,6 +579,8 @@
 
 - When an object property is accessed , JavaScript will search for the property in the object first. If not found it will search in parent object's prototype. If it is not found, it will search in the parent's linked prototype until it reaches Object.prototype. This is how the prototypal inheritance works in JavaScript.
 
+<br/>
+
 ## Modules
 
 - Creating
@@ -568,12 +590,16 @@
 
 # 4. Advanced Topics
 
+<br/>
+
 ## Promises
 
 - Getting over the callback hell
 - Promises: `async` and `await`
 - Read Venkat's book [Rediscovering JavaScript](https://learning.oreilly.com/library/view/rediscovering-javascript/9781680506174/f_0077.xhtml#chap.promises)
 - [Additional Reference](https://www.taniarascia.com/promise-all-with-async-await/)
+
+<br/>
 
 ## Metaprogramming
 
@@ -582,7 +608,12 @@
 - Proxy
 - Read Venkat's book [Rediscovering JavaScript](https://learning.oreilly.com/library/view/rediscovering-javascript/9781680506174/f_0085.xhtml#chap.metaprogramming)
 
+<br/>
+<br/>
+
 # Additional Reading
+
+<br/>
 
 - [Arrays](https://www.taniarascia.com/understanding-arrays-in-javascript/)
 - [String Manipulation](https://www.taniarascia.com/how-to-index-split-and-manipulate-strings-in-javascript/)
